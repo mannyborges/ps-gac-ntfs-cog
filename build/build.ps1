@@ -38,5 +38,32 @@ UNICODEEncoding = encode output as UNICODE in console mode
       longPaths = enable long paths ( > 260 characters) if enabled on OS (works only with Windows 10      
 #>
 
+function Move-OldBuild {
+<# for now I am wiping them out
+Later we can look at adding a timestamp and moving them to archive or using jenkins and doing an actual cersioned build #>
 
-Invoke-ps2exe .\source.ps1 .\target.exe -company Cognex -description "Sets NTFS Permissions oin the GAC" -titl "Secops tool - GAC NTSF Modifier - .manny"
+}
+ function MAIN () {
+$WorkingDirectory = 
+$scriptPath = 
+$buildLocation = 
+$FileName = 
+
+$go = [PSCustomObject]@{  # update your properties and add new ones in this block
+    WorkingDirectory = "..\..\\ps-gac-ntfs-cog\"
+    BuildLocation = "build\"
+    FilePath = "script\"
+    FileName = "setntfsacl"
+    title = "Secops tool - GAC NTSF Modifier - .manny" # this is displayed on the action windows
+    description = "Sets NTFS Permissions on the GAC 32 and 64"
+    company = "Cognex"
+}
+
+$in = $go.WorkingDirectory + $go.FilePath + $go.FileName + ".ps1"
+$out = $go.WorkingDirectory + $go.BuildLocation + $go.FileName + ".exe"
+if (Test-Path $out)
+   {remove-item -path $out -Force   }
+Invoke-ps2exe -inputFile $in -outputFile $out -company $go.company -description $go.title -title $go.company -noConsole
+
+ }
+ main
