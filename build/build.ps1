@@ -40,7 +40,7 @@ UNICODEEncoding = encode output as UNICODE in console mode
 
 function Move-OldBuild {
 <# for now I am wiping them out
-Later we can look at adding a timestamp and moving them to archive or using jenkins and doing an actual cersioned build #>
+Later we can look at adding a timestamp and moving them to archive or using jenkins and doing an actual versioned build #>
 
 }
  function MAIN () {
@@ -50,10 +50,10 @@ $buildLocation =
 $FileName = 
 
 $go = [PSCustomObject]@{  # update your properties and add new ones in this block
-    WorkingDirectory = "..\..\\ps-gac-ntfs-cog\"
+    WorkingDirectory = "..\ps-gac-ntfs-cog\"
     BuildLocation = "build\"
     FilePath = "script\"
-    FileName = "setntfsacl"
+    FileName = "ps-gac-ntfs-cog"
     title = "Secops tool - GAC NTSF Modifier - .manny" # this is displayed on the action windows
     description = "Sets NTFS Permissions on the GAC 32 and 64"
     company = "Cognex"
