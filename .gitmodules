@@ -1,0 +1,3 @@
+[submodule "CommonStackResources"]
+	path = CommonStackResources
+	url = https://github.com/monster-next/CommonStackResources.git
